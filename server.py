@@ -37,10 +37,10 @@ def main():
 
         with conn2client:
 
-            nettspend = conn2client.recv()
-            nettspend = nettspend + "Nardwaur"
+            location = conn2client.recv()
+            location = "Alrighty! " + location + " it is!"
 
-            conn2client.sendall(nettspend)
+            conn2client.sendall(location)
 
         
 
