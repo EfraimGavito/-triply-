@@ -7,20 +7,19 @@ PORT = 65431
 
 def main():
 
-    print('Hello world')
+    location = input('Where would you like to go? ')
 
     # Create socket to connect to the server
 
     with create_new_socket() as s:
         s.connect(HOST, PORT)
 
-        s.sendall('richmond grim reaper')
+        s.sendall(location)
 
         while True:
-            nettspend = s.recv()
-            print(nettspend)
+            location = s.recv()
+            print(location)
             break
 
 if __name__ == '__main__':
-    main()# client.py
-
+    main()
