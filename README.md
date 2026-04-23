@@ -3,11 +3,6 @@
 Triply is your all-in-one app for afforadble and authentic travel. Triply will prompt search for the cheapest option between flights with different airlines (Delta, United, American, etc), transportation with different ride share apps (Uber, Lyft, Bolt, Waymo, etc), and food delivery options (UberEats, DoorDash, Grubhub, etc.) to find the cheapest options and tailor it to the unique cultural recommendation that the app builds from your  user imput and create a unique user profile. 
 
 
-# Triply
-
-## Project Description
-Triply is a Flask-based travel comparison demo app that helps users explore affordable travel options. The app allows users to enter trip details and receive simulated comparisons for flights, ride-share options, and local recommendations.
-
 This project demonstrates:
 - Flight comparison
 - Ride-share comparison
