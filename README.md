@@ -18,6 +18,10 @@ This project demonstrates:
   - Main Flask application
   - Handles routes, user input, and page rendering
   - Generates flight comparisons, ride-share comparisons, and recommendations
+ 
+- `testapp.py`
+  - Test version of app.py that uses random data
+  - Is the current prototype and showcases how Triply will appear
 
 - `client.py`
   - Socket-based client prototype
