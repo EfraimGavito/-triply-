@@ -242,9 +242,41 @@ def flights_page(form_data):
 
     best_flight = flights[0]
 
-    html = """
+    html = f"""
     <div class="card">
+
+        <a href="/" class="btn" style="text-decoration:none;">
+            ← New Flight Search
+        </a>
+
+        <br><br>
+
         <h2>Flight Results</h2>
+
+        <!-- Ranking Dropdown -->
+        <form method="post">
+
+            <!-- Keep previous search values -->
+            <input type="hidden" name="origin" value="{form_data['origin']}">
+            <input type="hidden" name="dest" value="{form_data['dest']}">
+            <input type="hidden" name="date" value="{form_data['date']}">
+            <input type="hidden" name="budget" value="{form_data['budget']}">
+            <input type="hidden" name="pref" value="{form_data.get('pref','')}">
+
+            <label><b>Rank Flights By:</b></label>
+
+            <select name="sort">
+                <option value="value">Best Value</option>
+                <option value="price">Lowest Price</option>
+                <option value="time">Shortest Flight</option>
+                <option value="layovers">Fewest Layovers</option>
+                <option value="co2">Lowest CO2</option>
+            </select>
+
+            <button class="btn">Apply</button>
+        </form>
+
+        <br>
 
         <table>
             <tr>
@@ -275,7 +307,8 @@ def flights_page(form_data):
     html += "</table></div>"
 
     # Add other Triply sections
-    html += rides_html()
+    ride_sort = form_data.get("ride_sort", "price")
+    html += rides_html(ride_sort, form_data)
     html += recommendations_html(
         destination=form_data["dest"],
         preferences=form_data.get("pref", "")
@@ -287,16 +320,55 @@ def flights_page(form_data):
 # ===================================================
 # RIDE SHARE ENGINE
 # ===================================================
-def rides_html():
+def rides_html(sort_by="price", form_data=None):
     """
     Simulates ride-share comparison results.
     """
 
     providers = ["Uber", "Lyft", "Bolt", "Waymo"]
+    rides = []
 
-    html = """
+    for company in providers:
+        rides.append({
+            "company": company,
+            "price": round(random.uniform(10, 35), 2),
+            "eta": random.randint(3, 12)
+        })
+
+    # Sort rides
+    if sort_by == "eta":
+        rides.sort(key=lambda x: x["eta"])
+    else:
+        rides.sort(key=lambda x: x["price"])
+
+    best = rides[0]["company"]
+
+    html = f"""
     <div class="card">
+
         <h2>Ride Comparison</h2>
+
+        <form method="post">
+
+            <!-- Preserve original search -->
+            <input type="hidden" name="origin" value="{form_data['origin']}">
+            <input type="hidden" name="dest" value="{form_data['dest']}">
+            <input type="hidden" name="date" value="{form_data['date']}">
+            <input type="hidden" name="budget" value="{form_data['budget']}">
+            <input type="hidden" name="pref" value="{form_data.get('pref','')}">
+
+            <label><b>Rank Rides By:</b></label>
+
+            <select name="ride_sort">
+                <option value="price">Lowest Price</option>
+                <option value="eta">Fastest Arrival</option>
+            </select>
+
+            <button class="btn">Apply</button>
+        </form>
+
+        <br>
+
         <table>
             <tr>
                 <th>Provider</th>
@@ -304,6 +376,22 @@ def rides_html():
                 <th>Price</th>
             </tr>
     """
+
+    for ride in rides:
+
+        badge = " ⭐ Best" if ride["company"] == best else ""
+
+        html += f"""
+        <tr>
+            <td>{ride['company']}{badge}</td>
+            <td>{ride['eta']} min</td>
+            <td>${ride['price']}</td>
+        </tr>
+        """
+
+    html += "</table></div>"
+
+    return html
 
     rides = []
 
