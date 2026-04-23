@@ -11,10 +11,6 @@ This project demonstrates:
 - Dynamic HTML rendering
 - User form handling
 
-**Important Note:**  
-Current flight and ride-share data are simulated using random values for demonstration purposes. The project is structured so that real travel APIs can be connected later.
-
----
 
 ## Files
 
