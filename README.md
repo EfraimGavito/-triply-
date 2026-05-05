@@ -1,6 +1,6 @@
 # -triply-
 
-Triply is your all-in-one app for afforadble and authentic travel. Triply will prompt search for the cheapest option between flights with different airlines (Delta, United, American, etc), transportation with different ride share apps (Uber, Lyft, Bolt, Waymo, etc), and food delivery options (UberEats, DoorDash, Grubhub, etc.) to find the cheapest options and tailor it to the unique cultural recommendation that the app builds from your  user imput and create a unique user profile. 
+Triply is your all-in-one app for afforadble and authentic travel. Triply will prompt search for the cheapest option between flights with different airlines (Delta, United, American, etc), transportation with different ride share apps (Uber, Lyft, Bolt, Waymo, etc), and include AI-powered local recommendations to find the cheapest options that tailor to the unique cultural experience based on your specific interests and inputs. 
 
 
 This project demonstrates:
@@ -13,26 +13,10 @@ This project demonstrates:
 
 
 ## Files
-
-- `app.py`
-  - Main Flask application
-  - Handles routes, user input, and page rendering
-  - Generates flight comparisons, ride-share comparisons, and recommendations
  
 - `testapp.py`
-  - Test version of app.py that uses random data
-  - Is the current prototype and showcases how Triply will appear
-
-- `client.py`
-  - Socket-based client prototype
-  - Sends user destination input to the server
-
-- `server.py`
-  - Socket-based server prototype
-  - Receives client input and returns a response
-
-- `socket32.py`
-  - Helper module for simplified socket creation
+  - Test version of the app that utilizes real flight data, AI-powered local recommendations, and simulated ride-share data due to Terms of Service limitations.
+  - Is the current local host prototype and showcases how Triply will appear.
 
 - `README.md`
   - Project documentation and setup instructions
@@ -41,12 +25,40 @@ This project demonstrates:
 
 ## Requirements
 
+1. Install Dependencies
 
-Install Python 3, Flask, and the Anthropic Python SDK.
+Install required Python packages:
 
-Install dependencies:
+pip install flask requests anthropic
+2. Set API Keys
 
-```bash
-pip install flask anthropic
-```bash
-pip install flask
+Triply requires API keys for full functionality.
+
+SerpApi (Flight Data)
+
+Get a key from SerpApi and set:
+
+Mac/Linux:
+
+export SERPAPI_KEY="your_key_here"
+
+Windows:
+
+set SERPAPI_KEY=your_key_here
+Anthropic (AI Recommendations)
+
+Get a key from Anthropic and set:
+
+Mac/Linux:
+
+export ANTHROPIC_API_KEY="your_key_here"
+
+Windows:
+
+set ANTHROPIC_API_KEY=your_key_here
+3. Run the App
+python testapp.py
+
+Then open your browser and go to:
+
+http://127.0.0.1:5000
