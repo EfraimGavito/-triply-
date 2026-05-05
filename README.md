@@ -41,9 +41,12 @@ This project demonstrates:
 
 ## Requirements
 
-Install Python 3 and Flask.
 
-Install Flask:
+Install Python 3, Flask, and the Anthropic Python SDK.
 
+Install dependencies:
+
+```bash
+pip install flask anthropic
 ```bash
 pip install flask
