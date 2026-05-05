@@ -23,6 +23,10 @@ This project demonstrates:
 
 ---
 
+## Collaboration
+This was a three person project between Efi, Denise, and Jan with the help of Generative AIs like ChatGPT and Claude. The Generative AIs wrote the bulk of the code, and we editied/revised in an iterative process to implement features, real flight data through SerpApi, and AI-powered local recommednations. Our Course Assistant, Chris, also assisted with guiding the trajectory of our project.
+
+
 ## Requirements
 
 1. Install Dependencies
@@ -40,25 +44,24 @@ Get a key from SerpApi and set:
 
 Mac/Linux:
 
-export SERPAPI_KEY="your_key_here"
+'export SERPAPI_KEY="your_key_here"'
 
 Windows:
 
-set SERPAPI_KEY=your_key_here
+'set SERPAPI_KEY=your_key_here'
+
 Anthropic (AI Recommendations)
 
 Get a key from Anthropic and set:
 
 Mac/Linux:
 
-export ANTHROPIC_API_KEY="your_key_here"
+'export ANTHROPIC_API_KEY="your_key_here"'
 
 Windows:
 
-set ANTHROPIC_API_KEY=your_key_here
+'set ANTHROPIC_API_KEY=your_key_here'
+
 3. Run the App
-python testapp.py
+'python testapp.py'
 
-Then open your browser and go to:
-
-http://127.0.0.1:5000
